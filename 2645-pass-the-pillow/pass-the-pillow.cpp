@@ -1,14 +1,21 @@
 class Solution {
 public:
     int passThePillow(int n, int time) {
-        int x=time/(n-1);
-        int y=time%(n-1);
-        if(x&1){
-       
-            return n-y;
-        }else{
-            
-            return 1+y;
+        bool isReverse = false;
+        int currentPosition = 1;
+        while(time--){
+            if(isReverse){
+                currentPosition--;
+            }
+            else{
+                currentPosition++;
+            }
+
+            if(currentPosition == n)
+                isReverse = true;
+            else if(currentPosition ==1)
+                isReverse = false;
         }
+return currentPosition;
     }
 };
